@@ -1,0 +1,185 @@
+@font-face {
+	font-family: "Quicksand";
+	src: url("../font/quicksand/Quicksand-Regular.ttf");
+	src: url("../font/quicksand/Quicksand-Regular.ttf") format("ttf"),
+		url("../font/quicksand/Quicksand-Regular.ttf") format("truetype");
+}
+
+* {
+	font-family: "Quicksand", "san-serif";
+}
+
+body {
+	padding: 0;
+	margin: 0;
+}
+
+/* Navigasi */
+
+.navbar {
+	background-color: white !important;
+	font-weight: bold;
+}
+
+.navbar .container .logo {
+	width: 40px;
+}
+
+.navbar .container .navbar-nav .nav-item {
+	padding-left: 30px;
+}
+
+.navbar .container .navbar-nav .nav-item .btn-login {
+	font-weight: 400;
+	width: 90px;
+	border-radius: 20px;
+}
+
+/* Home */
+
+#home {
+	margin-top: 80px;
+}
+
+#home .row .col-md-6 .hero-judul {
+	margin-top: 60px;
+	font-size: 45px;
+	font-weight: 700;
+}
+
+#home .row .col-md-6 p {
+	margin-top: 20px;
+	font-size: 20px;
+	color: #8b8ba5;
+}
+
+#home .row .col-md-6 .btn-hero {
+	margin-top: 40px;
+	font-weight: 700;
+}
+
+#home .row .col-md-6 .hero-image {
+	width: 550px;
+}
+
+/* Tentang */
+#tentang {
+	margin-top: 130px;
+}
+
+#tentang h4 {
+	font-size: 30px;
+	font-weight: 700;
+}
+
+#tentang .row p {
+	font-size: 20px;
+	font-weight: 700;
+	color: #44445e;
+}
+
+#tentang .row .icon-judul {
+	margin-top: 20px;
+	font-weight: 700;
+	color: #150544 !important;
+}
+
+#tentang .row .deskripsi {
+	font-size: 18px;
+	font-weight: 400;
+	color: #150544 !important;
+}
+
+/* Peraturan */
+
+#peraturan {
+	margin-top: 100px;
+}
+
+#peraturan h4 {
+	font-size: 30px;
+	font-weight: 700;
+}
+
+#peraturan p {
+	font-size: 20px;
+	font-weight: 700;
+	color: #44445e;
+}
+
+/* Sejarah */
+
+#sejarah {
+	margin-top: 100px;
+}
+
+#sejarah h4 {
+	font-size: 30px;
+	font-weight: 700;
+}
+
+#sejarah p {
+	font-size: 20px;
+	font-weight: 700;
+	color: #44445e;
+}
+
+/* Footer */
+
+footer {
+	margin-top: 80px;
+	background-color: #1e2833;
+	color: white;
+}
+
+footer h4 {
+	font-size: 30px;
+	margin-top: 50px;
+	font-weight: 700;
+}
+
+footer img {
+	padding-right: 30px;
+}
+
+footer .footer-logo {
+	padding: 0;
+	margin: 0;
+	width: 65px;
+}
+
+/* Tampilan tablet */
+
+@media only screen and (max-width: 992px) {
+}
+
+/* Tampilan Handphone */
+
+@media only screen and (max-width: 576px) {
+	#home {
+		margin-top: -30px;
+	}
+
+	#home .row .col-md-6 .hero-judul {
+		margin-top: 60px;
+		font-size: 29px;
+		font-weight: 700;
+	}
+
+	#home .row .col-md-6 p {
+		margin-top: 20px;
+		font-size: 17px;
+		color: #8b8ba5;
+	}
+
+	#home .row .col-md-6 .btn-hero {
+		margin-top: 20px;
+		font-size: 13px;
+		font-weight: bold;
+	}
+	#home .row .col-md-6 .hero-image {
+		margin-top: 60px;
+		width: 335px;
+		object-fit: cover;
+	}
+}

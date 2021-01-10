@@ -27,16 +27,16 @@
             <div class="collapse navbar-collapse" id="collapsibleNavId">
                 <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Home</a>
+                        <a class="nav-link page-scroll" href="#home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Tentang</a>
+                        <a class="nav-link page-scroll" href="#tentang">Tentang</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Peraturan</a>
+                        <a class="nav-link page-scroll" href="#peraturan">Peraturan</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Sejarah</a>
+                        <a class="nav-link page-scroll" href="#sejarah">Sejarah</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="btn-login nav-link dropdown-toggle btn btn-sm btn-primary text-white rounded" href="#"
@@ -188,6 +188,7 @@
 
     <script src="<?= base_url('assets/js/jquery-3.5.1.min.js') ?>"></script>
     <script src="<?= base_url('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
+    <script src="<?= base_url('assets/js/custom.js') ?>"></script>
 </body>
 
 </html>

@@ -1,0 +1,22 @@
+1. dropdown hapus lp
+2. peraturan, visi misi sejarah	(tabel content)
+3. Keterangan masukkan u/ admin (optional)
+
+1. Menu Siswa: 
+	- Dashboard (Welcome, tampilin point)
+	- Riwayat Pelanggaran (Notif SP)
+	- Profile
+	- Push Notif (Optional)
+
+2. Menu Petugas:
+	- Dashboard (Input)
+
+3. Menu Admin:
+	- Dashboard (welcome)
+	- CRUD DATA MASTER
+	- CRUD Petugas
+
+4. Menu Guru: 
+	- Dashboard (Welcome)
+	- Riwayat Pelanggaran
+	- Profile

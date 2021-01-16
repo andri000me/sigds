@@ -38,14 +38,8 @@
                     <li class="nav-item">
                         <a class="nav-link page-scroll" href="#sejarah">Sejarah</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="btn-login nav-link dropdown-toggle btn btn-sm btn-primary text-white rounded" href="#"
-                            id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Login</a>
-                        <div class="dropdown-menu" aria-labelledby="dropdownId">
-                            <a class="dropdown-item" href="#">Siswa</a>
-                            <a class="dropdown-item" href="#">Guru</a>
-                            <a class="dropdown-item" href="#">Admin</a>
-                        </div>
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll btn btn-sm btn-primary btn-login" href="#">Login</a>
                     </li>
                 </ul>
             </div>

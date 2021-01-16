@@ -30,9 +30,10 @@ body {
 }
 
 .navbar .container .navbar-nav .nav-item .btn-login {
-	font-weight: 400;
+	font-weight: 700;
 	width: 90px;
 	border-radius: 20px;
+	color: white;
 }
 
 /* Home */
@@ -156,8 +157,9 @@ footer .footer-logo {
 /* Tampilan Handphone */
 
 @media only screen and (max-width: 576px) {
+	/* Home */
 	#home {
-		margin-top: -30px;
+		margin-top: 50px;
 	}
 
 	#home .row .col-md-6 .hero-judul {

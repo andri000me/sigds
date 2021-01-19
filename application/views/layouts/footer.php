@@ -23,6 +23,10 @@
 <script src="<?= base_url('assets/vendor/stisla/js/custom.js') ?>"></script>
 
 <!-- Page Specific JS File -->
+
+<!-- Datatable -->
+<script src="<?= base_url('assets/js/datatables.min.js') ?>"></script>
+
 </body>
 
 </html>

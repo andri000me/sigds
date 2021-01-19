@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="<?= base_url('assets/vendor/fontawesome/css/all.css') ?>">
 
     <!-- CSS Libraries -->
+    <link rel="stylesheet" href="<?= base_url('assets/css/datatables.css') ?>">
+
 
     <!-- Template CSS -->
     <link rel="stylesheet" href="<?= base_url('assets/vendor/stisla/css/style.css') ?>">

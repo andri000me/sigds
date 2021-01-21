@@ -78,8 +78,9 @@ class Admin extends CI_Controller
         $this->load->helper('form');
 
         $this->form_validation->set_error_delimiters('', '');
-        $this->form_validation->set_rules('nama', 'Nama', 'required|trim');
-        $this->form_validation->set_rules('username', 'Username', 'required|trim');
+        $this->form_validation->set_rules('id', 'ID_ADMIN', 'required|trim');
+        $this->form_validation->set_rules('edit_nama', 'Nama', 'required|trim');
+        $this->form_validation->set_rules('edit_username', 'Username', 'required|trim');
 
         $this->form_validation->set_message('required', '%s tidak boleh kosong !');
         $this->form_validation->set_message('is_unique', '%s sudah ada !');
@@ -87,15 +88,22 @@ class Admin extends CI_Controller
         if ($this->form_validation->run() == FALSE) {
             $array = array(
                 'error'   => true,
-                'nama' => form_error('nama'),
-                'username' => form_error('username')
+                'id' => form_error('id'),
+                'nama' => form_error('edit_nama'),
+                'username' => form_error('edit_username')
 
             );
             echo json_encode($array);
         } else {
+            $gambar = $_FILES['edit_image']['tmp_name'];
+            // jika ada gambar yang mau di upload
+            if (file_exists($gambar)) {
+                $this->ubah_image();
+            }
+
             $id = $this->input->post('id');
-            $nama = $this->input->post('nama');
-            $username = $this->input->post('username');
+            $nama = $this->input->post('edit_nama');
+            $username = $this->input->post('edit_username');
 
             $data = [
                 "name" => $nama,
@@ -115,5 +123,40 @@ class Admin extends CI_Controller
 
         $q = $this->db->delete('admin', array('id_admin' => $id));
         echo json_encode($this->db->affected_rows());
+    }
+
+
+    public function ubah_image()
+    {
+        //name dari form edit
+        $namefile = 'edit_image';
+        $id_admin = $this->input->post('id');
+        $username = $this->input->post('edit_username');
+
+        // PATH IMAGE DISIMPAN
+        $config['upload_path'] = './assets/img/admin/';
+        $config['file_name'] = 'admin-' . $username;
+        $config['file_ext_tolower'] = TRUE;
+
+        //menggantikan image lama dengan image baru agar tdk ada penumpukan 
+        $config['overwrite'] = TRUE;
+
+        // $config['encrypt_name'] = TRUE;
+        $config['allowed_types'] = 'gif|jpg|png';
+        $config['max_size']     = '2024';
+        $config['max_width'] = '1024';
+        $config['max_height'] = '768';
+
+        $this->load->library('upload', $config);
+
+        // jika upload gagal
+        if (!$this->upload->do_upload($namefile)) {
+            echo $this->upload->display_errors('<p>', '</p>');
+            return;
+        } else {
+            // lakukan update nama file ke table admin
+            $namaBaru = $this->upload->data('file_name');
+            $this->db->update('admin', ["image" => $namaBaru], array('id_admin' => $id_admin));
+        }
     }
 }

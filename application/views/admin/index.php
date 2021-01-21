@@ -51,8 +51,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title">Tambah Admin</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                            aria-hidden="true">&times;</span></button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 </div>
                 <div class="modal-body">
                     <div class="form-group row">
@@ -81,6 +80,7 @@
 </form>
 <!-- Penutup Modal Tambah Admin-->
 
+<!-- css loader -->
 <!-- Modal Edit Admin -->
 <form id="editAdmin" method="post">
     <div class="modal fade" id="ModalEditAdmin" tabindex="-1">
@@ -89,8 +89,7 @@
                 <div class="modal-header">
                     <h4 class="modal-title" id="myModalLabel">Edit ID <span class="text-primary" id="edit_id"></span>
                     </h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                            aria-hidden="true">&times;</span></button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 </div>
                 <div class="modal-body">
                     <input type="hidden" id="edit_id_admin" name="id" class="form-control" required>
@@ -121,16 +120,10 @@
                             <img class="rounded" src="#" height="100" id="edit_imgPreview">
                         </div>
                     </div>
-                    <!-- <div class="form-group row">
-                        <div class="col-sm-12">
-                            <img class="rounded" src="#" height="100" id="edit_imgPreview">
-                        </div>
-                    </div> -->
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="submit" href="javascript:void(0);" onclick="reload_table()"
-                        class="btn btn-primary">Simpan</button>
+                    <button type="submit" href="javascript:void(0);" onclick="reload_table()" class="btn btn-primary editBtn">Simpan</button>
                 </div>
             </div>
         </div>
@@ -148,8 +141,7 @@
                 <div class="modal-header">
                     <h4 class="modal-title" id="myModalLabel">Hapus ID <span class="text-danger" id="hapus_id"></span>
                     </h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                            aria-hidden="true">&times;</span></button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 </div>
                 <div class="modal-body">
                     <input type="hidden" id="id_admin" name="id" class="form-control" required>
@@ -175,8 +167,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="submit" href="javascript:void(0);" onclick="reload_table()"
-                        class="btn btn-danger">Hapus</button>
+                    <button type="submit" href="javascript:void(0);" onclick="reload_table()" class="btn btn-danger">Hapus</button>
                 </div>
             </div>
         </div>

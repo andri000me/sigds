@@ -23,7 +23,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost/sigds/';
+// $config['base_url'] = 'http://localhost/sigds/';
+$config['base_url'] = 'http://localhost/codeigniter/ci3/sigds/';
 // $config['base_url'] = 'http://192.168.23.10/codeigniter/ci3/sigds/';
 
 /*

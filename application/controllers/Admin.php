@@ -10,11 +10,10 @@ class Admin extends CI_Controller
         return $this->load->view('admin/index', $data);
     }
 
-
     public function json()
     {
         $this->load->library('datatables');
-        $this->datatables->select('id_admin, image, name, username, password');
+        $this->datatables->select('id_admin, image, name, username');
         $this->datatables->from('admin');
         $this->datatables->add_column(
             'aksi',

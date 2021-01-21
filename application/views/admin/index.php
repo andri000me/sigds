@@ -18,22 +18,23 @@
                     <!-- TABEL -->
                     <button class="btn btn-md btn-success btnTambahAdmin">Tambah <i class="fas fa-plus"></i></button>
                     <div class="row">
-                        <div class="col-12 mt-3">
-                            <table class="table table-bordered" id="mytable">
-                                <thead>
-                                    <tr>
-                                        <th>ID Admin</th>
-                                        <th>Image</th>
-                                        <th>Name</th>
-                                        <th>Username</th>
-                                        <th>Password</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
+                        <div class="table-responsive">
+                            <div class="col-12 mt-3">
+                                <table class="table table-bordered" id="mytable">
+                                    <thead>
+                                        <tr>
+                                            <th>No.</th>
+                                            <th>Image</th>
+                                            <th>Name</th>
+                                            <th>Username</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
 
-                                </tbody>
-                            </table>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -50,7 +51,8 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title">Tambah Admin</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
                 </div>
                 <div class="modal-body">
                     <div class="form-group row">
@@ -85,8 +87,10 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">Edit ID <span class="text-primary" id="edit_id"></span></h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Edit ID <span class="text-primary" id="edit_id"></span>
+                    </h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
                 </div>
                 <div class="modal-body">
                     <input type="hidden" id="edit_id_admin" name="id" class="form-control" required>
@@ -125,7 +129,8 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="submit" href="javascript:void(0);" onclick="reload_table()" class="btn btn-primary">Simpan</button>
+                    <button type="submit" href="javascript:void(0);" onclick="reload_table()"
+                        class="btn btn-primary">Simpan</button>
                 </div>
             </div>
         </div>
@@ -141,8 +146,10 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">Hapus ID <span class="text-danger" id="hapus_id"></span></h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Hapus ID <span class="text-danger" id="hapus_id"></span>
+                    </h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
                 </div>
                 <div class="modal-body">
                     <input type="hidden" id="id_admin" name="id" class="form-control" required>
@@ -168,7 +175,8 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="submit" href="javascript:void(0);" onclick="reload_table()" class="btn btn-danger">Hapus</button>
+                    <button type="submit" href="javascript:void(0);" onclick="reload_table()"
+                        class="btn btn-danger">Hapus</button>
                 </div>
             </div>
         </div>

@@ -91,14 +91,19 @@ class Admin extends CI_Controller
                 'id' => form_error('id'),
                 'nama' => form_error('edit_nama'),
                 'username' => form_error('edit_username')
-
             );
             echo json_encode($array);
         } else {
             $gambar = $_FILES['edit_image']['tmp_name'];
+
+            $handler = [];
             // jika ada gambar yang mau di upload
             if (file_exists($gambar)) {
-                $this->ubah_image();
+                if ($this->ubah_image() != 1) {
+                    $handler['error_image'] = $this->ubah_image();
+                } else {
+                    $handler['error_image'] = 0;
+                }
             }
 
             $id = $this->input->post('id');
@@ -111,8 +116,9 @@ class Admin extends CI_Controller
             ];
 
             // update data
-            $this->db->update('admin', $data, array('id_admin' => $id));
-            echo json_encode($this->db->affected_rows());
+            $update = $this->db->update('admin', $data, array('id_admin' => $id));
+            $handler['edit'] = $update;
+            echo json_encode($handler);
         }
     }
 
@@ -129,34 +135,41 @@ class Admin extends CI_Controller
     public function ubah_image()
     {
         //name dari form edit
-        $namefile = 'edit_image';
+        $inputfile = 'edit_image';
         $id_admin = $this->input->post('id');
-        $username = $this->input->post('edit_username');
+        $prevImage = $this->db->get_where('admin', ['id_admin' => $id_admin])->result_array()[0]['image'];
 
+        // if ($prevImage != "default.jpg") {
+
+        // delete previous image
+        if ($prevImage != 'default.jpg') {
+            unlink(FCPATH . '/assets/img/admin/' . $prevImage);
+        }
+        // }
         // PATH IMAGE DISIMPAN
         $config['upload_path'] = './assets/img/admin/';
-        $config['file_name'] = 'admin-' . $username;
+        // $config['file_name'] = 'admin-' . $username;
         $config['file_ext_tolower'] = TRUE;
 
         //menggantikan image lama dengan image baru agar tdk ada penumpukan 
         $config['overwrite'] = TRUE;
 
-        // $config['encrypt_name'] = TRUE;
-        $config['allowed_types'] = 'gif|jpg|png';
-        $config['max_size']     = '2024';
-        $config['max_width'] = '1024';
-        $config['max_height'] = '768';
+        $config['encrypt_name']     = TRUE;
+        $config['allowed_types']    = 'jpg|jpeg|png';
+        $config['max_size']         = '1024';
+        $config['max_width']        = '1024';
+        $config['max_height']       = '1024';
 
         $this->load->library('upload', $config);
 
         // jika upload gagal
-        if (!$this->upload->do_upload($namefile)) {
-            echo $this->upload->display_errors('<p>', '</p>');
-            return;
+        if (!$this->upload->do_upload($inputfile)) {
+            return $this->upload->display_errors('', '');
         } else {
             // lakukan update nama file ke table admin
             $namaBaru = $this->upload->data('file_name');
             $this->db->update('admin', ["image" => $namaBaru], array('id_admin' => $id_admin));
+            return $this->db->affected_rows();
         }
     }
 }

@@ -1,5 +1,6 @@
 <script type="text/javascript">
     $(document).ready(function() {
+
         // datatables
         $('#mytable').DataTable({
             "serverSide": true,
@@ -44,8 +45,13 @@
                 {
                     data: "image",
                     render: function(data) {
-                        return '<img class="rounded" src="<?= base_url("assets/img/admin/") ?>' +
-                            data + '"height="75">'
+                        if (data == 'default.jpg') {
+
+                            return '<img class="rounded" src="<?= base_url("assets/img/") ?>' + data + '"height="75">'
+                        } else {
+                            return '<img class="rounded" src="<?= base_url("assets/img/admin/") ?>' + data + '"height="75">'
+
+                        }
                     },
                     orderable: false
                 },
@@ -132,8 +138,12 @@
                 $("#edit_id_admin").val(result.id_admin);
                 $("#edit_nama").val(result.name);
                 $("#edit_username").val(result.username);
-                $("#edit_imgPreview").attr("src", '<?= base_url("assets/img/admin/") ?>' + result
-                    .image);
+                if (result.image == 'default.jpg') {
+
+                    $("#edit_imgPreview").attr("src", '<?= base_url("assets/img/") ?>' + result.image);
+                } else {
+                    $("#edit_imgPreview").attr("src", '<?= base_url("assets/img/admin/") ?>' + result.image);
+                }
             }
 
         });
@@ -173,7 +183,13 @@
     //     });
     // });
 
+    // ketika modal edit telah tertutup
+    // $("#ModalEditAdmin").on('hidden.bs.modal', function() {
+    //     setTimeout(function() {
+    //         reload_table();
 
+    //     }, 2000);
+    // });
     // prototype upload with loader
     $("#editAdmin").submit(function(e) {
         e.preventDefault();
@@ -207,20 +223,31 @@
             success: function(result) {
                 $('.editBtn').removeClass("disabled");
                 $('.editBtn').html('Simpan');
+                clearError();
+                log(result);
+
+                if (result) {
+                    $('#ModalEditAdmin').modal('hide');
+                    clearError();
+                    reload_table();
+                    return;
+                }
 
                 // jika berhasil
-                if (result == 1 || result == 0) {
+                if (result.edit == 1 && result.error_image == 0) {
                     $('#ModalEditAdmin').modal('hide');
+                    clearError();
                     reload_table();
-                } else {
+                } else if (result.error_image) {
                     $('#edit_nama_error').html(result.nama);
                     $('#edit_username_error').html(result.username);
-                    log(result);
+                    $('#image_error').html(result.error_image);
+                } else {
+                    $('#image_error').html(result.error_image);
+                    clearError();
+                    reload_table();
                 }
             }
-            // beforeSend: function() {
-            //     $('.editBtn').html('Load');
-            // }
         });
     });
     // penutup handle edit admin
@@ -278,7 +305,13 @@
 
     // reload the datatable
     function reload_table() {
-        $('#mytable').DataTable().ajax.reload();
+        $('#mytable').DataTable().ajax.reload(null, false);
+    }
+
+    function clearError() {
+        $('#edit_nama_error').html('');
+        $('#edit_username_error').html('');
+        $('#image_error').html('');
     }
 
     // biar gak ngetik console.log lagi, capek

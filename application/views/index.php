@@ -39,7 +39,7 @@
                         <a class="nav-link page-scroll" href="#sejarah">Sejarah</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link page-scroll btn btn-sm btn-primary btn-login" href="#">Login</a>
+                        <a class="nav-link page-scroll btn btn-sm btn-primary btn-login" href="<?= base_url("auth/logSiswa") ?>">Login</a>
                     </li>
                 </ul>
             </div>

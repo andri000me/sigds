@@ -32,9 +32,9 @@ class Siswa extends CI_Controller {
     public function changePassword()
     {
         # code...
-        $data['title'] = 'Riwayat Pelanggaran';
-        $data['judul'] = 'Riwayat Pelanggaran';
-        $this->load->view('siswa/history', $data);
+        $data['title'] = 'Ubah Password';
+        $data['judul'] = 'Ubah Password';
+        $this->load->view('siswa/changePassword', $data);
     }
 
 }

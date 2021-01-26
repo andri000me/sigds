@@ -16,6 +16,9 @@
                 <a href="<?= base_url('siswa/myprofile') ?>" class="nav-link"><i class="fas fa-user"></i><span>My Profile</span></a>
             </li>
             <li>
+                <a href="<?= base_url('siswa/changePassword') ?>" class="nav-link"><i class="fas fa-user-edit"></i><span>Ubah Password</span></a>
+            </li>
+            <li>
                 <a href="<?= base_url('siswa/history') ?>" class="nav-link"><i class="fas fa-clock"></i><span>Riwayat Pelanggaran</span></a>
             </li>
         </ul>

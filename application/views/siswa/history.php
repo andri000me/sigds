@@ -1,5 +1,5 @@
-<?php $this->load->view('siswa/layouts/header'); ?>
-<?php $this->load->view('siswa/layouts/topbar') ?>
+<?php $this->load->view('layouts/header'); ?>
+<?php $this->load->view('layouts/topbar') ?>
 <?php $this->load->view('siswa/layouts/sidebar') ?>
 
 <!-- Main Content -->
@@ -11,26 +11,33 @@
 
         <div class="section-body">
             <div class="row">
-                <div class="col-lg-6">
-                    <table class="table table-hover">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Riwayat Pelanggaran</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php $i=1; ?>
-                            <tr>
-                                <th scope="row"><?= $i; ?></th>
-                                <td>Ngeganja diruang kelas</td>
-                            </tr>
-                            <?php $i++; ?>
-                        </tbody>
-                    </table>
+                <div class="col-12 col-md-6 col-lg-6">
+                    <div class="card">
+                        <div class="card-header">
+                        <h4>Riwayat Pelanggaran</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-md">
+                                <tr>
+                                    <th>#</th>
+                                    <th>Pelanggaran</th>
+                                    <th>Point</th>
+                                    <th>Tanggal</th>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Tidak mengguankan dasi</td>
+                                    <td class="text-center text-danger">10</td>
+                                    <td>4 Agustus 2019</td>
+                                </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 </div>
-<?php $this->load->view('siswa/layouts/footer') ?>
+<?php $this->load->view('layouts/footer') ?>

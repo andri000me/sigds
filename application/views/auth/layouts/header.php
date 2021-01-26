@@ -11,12 +11,11 @@
     <link rel="stylesheet" href="<?= base_url('assets/vendor/fontawesome/css/all.css') ?>">
 
     <!-- CSS Libraries -->
+    <link rel="stylesheet" href="<?= base_url('assets/css/datatables.css') ?>">
+
+
 
     <!-- Template CSS -->
     <link rel="stylesheet" href="<?= base_url('assets/vendor/stisla/css/style.css') ?>">
     <link rel="stylesheet" href="<?= base_url('assets/vendor/stisla/css/components.css') ?>">
 </head>
-
-<body>
-    <div id="app">
-        <div class="main-wrapper">

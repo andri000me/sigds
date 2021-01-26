@@ -25,6 +25,27 @@
 <!-- Datatable -->
 <script src="<?= base_url('assets/js/datatables.min.js') ?>"></script>
 
+<!-- CK Editor -->
+<script src="<?= base_url('assets/vendor/ckeditor/ckeditor.js') ?>"></script>
+<script>
+let peraturan = document.getElementById("peraturan");
+CKEDITOR.replace(peraturan, {
+    language: 'en-gb'
+});
+let sejarah = document.getElementById("sejarah");
+CKEDITOR.replace(sejarah, {
+    language: 'en-gb'
+});
+let visi = document.getElementById("visi");
+CKEDITOR.replace(visi, {
+    language: 'en-gb'
+});
+let misi = document.getElementById("misi");
+CKEDITOR.replace(misi, {
+    language: 'en-gb'
+});
+CKEDITOR.config.allowedContent = true;
+</script>
 </body>
 
 </html>

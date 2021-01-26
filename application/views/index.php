@@ -110,23 +110,12 @@
         <section id="peraturan">
             <h4 class="text-center mb-5">Peraturan</h4>
             <div class="row justify-content-center text-justify">
-                <div class="col-md-6">
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum pariatur perspiciatis delectus
-                        error, harum dolores dolorem mollitia! Sed similique quo placeat, quae reprehenderit quas ea
-                        cumque, enim nulla fuga alias?
-                        <br><br>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae rem in animi non, odit ducimus
-                        hic temporibus recusandae aspernatur deleniti.
-                    </p>
-                </div>
-                <div class="col-md-6">
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum pariatur perspiciatis delectus
-                        error, harum dolores dolorem mollitia! Sed similique quo placeat, quae reprehenderit quas ea
-                        cumque, enim nulla fuga alias?
-                        <br><br>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nisi praesentium expedita placeat
-                        ratione repudiandae et, voluptatem officia aliquid id corporis.
-                    </p>
+                <div class="col-md-10">
+                    <?php
+                    foreach ($peraturan as $p) {
+                        echo $p->isi;
+                    }
+                    ?>
                 </div>
             </div>
         </section>
@@ -134,23 +123,31 @@
         <section id="sejarah">
             <h4 class="text-center mb-5">Sejarah</h4>
             <div class="row justify-content-center text-justify">
-                <div class="col-md-6">
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum pariatur perspiciatis delectus
-                        error, harum dolores dolorem mollitia! Sed similique quo placeat, quae reprehenderit quas ea
-                        cumque, enim nulla fuga alias?
-                        <br><br>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae rem in animi non, odit ducimus
-                        hic temporibus recusandae aspernatur deleniti.
-                    </p>
+                <div class="col-md-10">
+                    <?php
+                    foreach ($sejarah as $s) {
+                        echo $s->isi;
+                    }
+                    ?>
                 </div>
-                <div class="col-md-6">
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum pariatur perspiciatis delectus
-                        error, harum dolores dolorem mollitia! Sed similique quo placeat, quae reprehenderit quas ea
-                        cumque, enim nulla fuga alias?
-                        <br><br>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nisi praesentium expedita placeat
-                        ratione repudiandae et, voluptatem officia aliquid id corporis.
-                    </p>
+            </div>
+            <!-- <h4 class="text-center mb-5">Visi & Misi</h4> -->
+            <div class="row justify-content-center text-center mt-5">
+                <div class="col-md-5">
+                    <h4>Visi</h4>
+                    <?php
+                    foreach ($visi as $v) {
+                        echo $v->isi;
+                    }
+                    ?>
+                </div>
+                <div class="col-md-5">
+                    <h4>Misi</h4>
+                    <?php
+                    foreach ($misi as $m) {
+                        echo $m->isi;
+                    }
+                    ?>
                 </div>
             </div>
         </section>

@@ -26,7 +26,15 @@ class Siswa extends CI_Controller {
     {
         $data['title'] = 'Riwayat Pelanggaran';
         $data['judul'] = 'Riwayat Pelanggaran';
-        $this->load->view('siswa/myProfile', $data);
+        $this->load->view('siswa/history', $data);
+    }
+    
+    public function changePassword()
+    {
+        # code...
+        $data['title'] = 'Riwayat Pelanggaran';
+        $data['judul'] = 'Riwayat Pelanggaran';
+        $this->load->view('siswa/history', $data);
     }
 
 }

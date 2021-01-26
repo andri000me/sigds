@@ -1,5 +1,5 @@
-<?php $this->load->view('siswa/layouts/header'); ?>
-<?php $this->load->view('siswa/layouts/topbar') ?>
+<?php $this->load->view('layouts/header'); ?>
+<?php $this->load->view('layouts/topbar') ?>
 <?php $this->load->view('siswa/layouts/sidebar') ?>
 
 <!-- Main Content -->
@@ -17,6 +17,8 @@
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Riwayat Pelanggaran</th>
+                                <th scope="col">Point</th>
+                                <th scope="col">Tanggal</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -24,6 +26,8 @@
                             <tr>
                                 <th scope="row"><?= $i; ?></th>
                                 <td>Ngeganja diruang kelas</td>
+                                <td>100</td>
+                                <td>1 Januari 2021</td>
                             </tr>
                             <?php $i++; ?>
                         </tbody>
@@ -33,4 +37,4 @@
         </div>
     </section>
 </div>
-<?php $this->load->view('siswa/layouts/footer') ?>
+<?php $this->load->view('layouts/footer') ?>

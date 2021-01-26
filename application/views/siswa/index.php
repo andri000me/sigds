@@ -1,5 +1,5 @@
-<?php $this->load->view('siswa/layouts/header'); ?>
-<?php $this->load->view('siswa/layouts/topbar') ?>
+<?php $this->load->view('layouts/header'); ?>
+<?php $this->load->view('layouts/topbar') ?>
 <?php $this->load->view('siswa/layouts/sidebar') ?>
 
 <!-- Main Content -->
@@ -23,4 +23,4 @@
         </div>
     </section>
 </div>
-<?php $this->load->view('siswa/layouts/footer') ?>
+<?php $this->load->view('layouts/footer') ?>

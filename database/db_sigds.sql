@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 21 Jan 2021 pada 05.37
+-- Waktu pembuatan: 27 Jan 2021 pada 02.20
 -- Versi server: 10.4.14-MariaDB
 -- Versi PHP: 7.4.10
 
@@ -40,7 +40,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id_admin`, `name`, `username`, `password`, `image`) VALUES
-(1, 'ahmad', 'ucok_i7', 'ac43724f16e9241d990427ab7c8f4228', 'default.jpg'),
+(1, 'ahmad', 'ucok_i7', 'ac43724f16e9241d990427ab7c8f4228', 'admin-ucok_i7.jpg'),
 (2, 'aldi', 'aldi_123', 'ac43724f16e9241d990427ab7c8f4228', 'default.jpg'),
 (21, 'asdasd', 'asdasd', '$2y$10$NBTtFKROpp5SukBkyQmdkugdMT400yU1DG66NQrfIXBw4yjXD4znG', 'default.jpg');
 
@@ -70,6 +70,28 @@ CREATE TABLE `keterangan` (
   `point` int(3) NOT NULL,
   `status` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `konten`
+--
+
+CREATE TABLE `konten` (
+  `id_konten` int(11) NOT NULL,
+  `konten` varchar(150) NOT NULL,
+  `isi` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `konten`
+--
+
+INSERT INTO `konten` (`id_konten`, `konten`, `isi`) VALUES
+(1, 'peraturan', '<p>Peraturan harus di atur coi</p>'),
+(2, 'visi', '<p>Visi 2</p>'),
+(3, 'misi', '<p>Misi</p>'),
+(4, 'sejarah', '<p>OK</p>');
 
 -- --------------------------------------------------------
 
@@ -200,6 +222,12 @@ ALTER TABLE `keterangan`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indeks untuk tabel `konten`
+--
+ALTER TABLE `konten`
+  ADD PRIMARY KEY (`id_konten`);
+
+--
 -- Indeks untuk tabel `pelanggar`
 --
 ALTER TABLE `pelanggar`
@@ -267,6 +295,12 @@ ALTER TABLE `admin`
 --
 ALTER TABLE `keterangan`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `konten`
+--
+ALTER TABLE `konten`
+  MODIFY `id_konten` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `pelanggar`

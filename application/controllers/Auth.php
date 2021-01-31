@@ -89,7 +89,7 @@ class Auth extends CI_Controller
         $this->load->view('auth/logPetugas', $data);
     }
 
-    public function logoutAdmin()
+    public function logout()
     {
         $this->session->unset_userdata('username');
         redirect('auth');

@@ -57,7 +57,7 @@
                     <div class="form-group row">
                         <label class="col-sm-3 col-form-label">Nama</label>
                         <div class="col-sm-9">
-                            <input type="text" name="nama" class="form-control">
+                            <input type="text" name="nama" class="form-control valueNama">
                             <span id="nama_error" class="text-danger"></span>
                         </div>
                     </div>
@@ -65,7 +65,7 @@
                     <div class="form-group row">
                         <label class="col-sm-3 col-form-label">Username</label>
                         <div class="col-sm-9">
-                            <input type="text" name="username" class="form-control">
+                            <input type="text" name="username" class="form-control valueUsername">
                             <span id="username_error" class="text-danger"></span>
                         </div>
                     </div>

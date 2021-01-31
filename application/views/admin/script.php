@@ -78,6 +78,13 @@
     $('.btnTambahAdmin').on('click', function() {
         $('#ModalTambahAdmin').modal('show');
     });
+
+    // clear value & error pada modal tambah admin
+    $("#ModalTambahAdmin").on('hidden.bs.modal', function() {
+        clearError();
+        $('.valueNama').val('');
+        $('.valueUsername').val('');
+    });
     // end modal tambah admin
 
     // handle proses tambah admin
@@ -312,6 +319,9 @@
         $('#edit_nama_error').html('');
         $('#edit_username_error').html('');
         $('#image_error').html('');
+        $('#nama_error').html('');
+        $('#username_error').html('');
+
     }
 
     // biar gak ngetik console.log lagi, capek

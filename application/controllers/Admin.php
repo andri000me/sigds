@@ -34,11 +34,13 @@ class Admin extends CI_Controller
         $this->load->helper('form');
 
         $this->form_validation->set_error_delimiters('', '');
-        $this->form_validation->set_rules('nama', 'Nama', 'required|trim');
-        $this->form_validation->set_rules('username', 'Username', 'required|trim|is_unique[admin.username]');
+        $this->form_validation->set_rules('nama', 'Nama', 'required|trim|alpha');
+        $this->form_validation->set_rules('username', 'Username', 'required|trim|is_unique[admin.username]|alpha_numeric');
 
         $this->form_validation->set_message('required', '%s tidak boleh kosong !');
-        $this->form_validation->set_message('is_unique', '%s sudah ada !');
+        $this->form_validation->set_message('is_unique', '%s sudah terdaftar !');
+        $this->form_validation->set_message('alpha', '%s harus huruf !');
+        $this->form_validation->set_message('alpha_numeric', '%s hanya dapat menggunakan angka & huruf!');
 
         if ($this->form_validation->run() == FALSE) {
             $array = array(

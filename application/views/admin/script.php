@@ -276,7 +276,11 @@
                 $("#id_admin").val(result.id_admin);
                 $("#hapus_nama").val(result.name);
                 $("#hapus_username").val(result.username);
-                $("#hapus_image").attr("src", '<?= base_url("assets/img/admin/") ?>' + result.image);
+                if (result.image == 'default.jpg') {
+                    $("#hapus_image").attr("src", '<?= base_url("assets/img/") ?>' + result.image);
+                } else {
+                    $("#hapus_image").attr("src", '<?= base_url("assets/img/admin/") ?>' + result.image);
+                }
             }
 
         });

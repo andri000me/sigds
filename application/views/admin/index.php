@@ -80,7 +80,6 @@
 </form>
 <!-- Penutup Modal Tambah Admin-->
 
-<!-- css loader -->
 <!-- Modal Edit Admin -->
 <form id="editAdmin" method="post">
     <div class="modal fade" id="ModalEditAdmin" tabindex="-1">

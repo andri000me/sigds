@@ -62,8 +62,15 @@ class Admin extends CI_Controller
                 "image" => "default.jpg"
             ];
 
+
             // insert data admin
             $this->db->insert('admin', $data);
+            $id_admin = $this->db->get_where('admin', ['username' => $data['username']])->row_array()['id_admin'];
+            $data_pengguna = [
+                "id_role" => 2,
+                "id_user" => $id_admin
+            ];
+            $this->db->insert('pengguna', $data_pengguna);
             echo json_encode($this->db->affected_rows()); // 1 if success
         }
     }
@@ -144,6 +151,7 @@ class Admin extends CI_Controller
         $id = $this->input->post('id');
 
         $q = $this->db->delete('admin', array('id_admin' => $id));
+
         echo json_encode($this->db->affected_rows());
     }
 

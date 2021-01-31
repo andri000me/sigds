@@ -150,7 +150,6 @@ class Admin extends CI_Controller
 
     public function ubah_image()
     {
-        $this->load->library('ftp');
         //name dari form edit
         $inputfile = 'edit_image';
         $id_admin = $this->input->post('id');
@@ -159,7 +158,8 @@ class Admin extends CI_Controller
 
         // delete previous image
         if ($prevImage != 'default.jpg') {
-            $this->ftp->delete_file(FCPATH . 'assets/img/admin/' . $prevImage);
+            // $this->ftp->delete_file(base_url('assets/img/admin/') . $prevImage);
+            unlink(FCPATH . 'assets/img/admin/' . $prevImage);
         }
         // }
         // PATH IMAGE DISIMPAN

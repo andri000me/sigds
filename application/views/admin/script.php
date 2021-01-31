@@ -191,12 +191,9 @@
     // });
 
     // ketika modal edit telah tertutup
-    // $("#ModalEditAdmin").on('hidden.bs.modal', function() {
-    //     setTimeout(function() {
-    //         reload_table();
-
-    //     }, 2000);
-    // });
+    $("#ModalEditAdmin").on('hidden.bs.modal', function() {
+        clearError();
+    });
     // prototype upload with loader
     $("#editAdmin").submit(function(e) {
         e.preventDefault();
@@ -228,32 +225,58 @@
             dataType: "json",
             contentType: false,
             success: function(result) {
-                $('.editBtn').removeClass("disabled");
-                $('.editBtn').html('Simpan');
-                clearError();
-                log(result);
 
-                if (result) {
-                    $('#ModalEditAdmin').modal('hide');
+                if (result.hasOwnProperty('error_image')) {
+                    if (!result.error_image) {
+                        log('error');
+                        $('#ModalEditAdmin').modal('hide');
+                        clearError();
+                        reload_table();
+                    }
                     clearError();
-                    reload_table();
+                    $('.editBtn').removeClass("disabled");
+                    $('.editBtn').html('Simpan');
+                    $('#image_error').html(result.error_image);
                     return;
                 }
 
-                // jika berhasil
-                if (result.edit == 1 && result.error_image == 0) {
+                if (result.hasOwnProperty('edit')) {
                     $('#ModalEditAdmin').modal('hide');
                     clearError();
                     reload_table();
-                } else if (result.error_image) {
+                    $('.editBtn').removeClass("disabled");
+                    $('.editBtn').html('Simpan');
+                    return;
+                } else if (result.hasOwnProperty('error')) {
                     $('#edit_nama_error').html(result.nama);
                     $('#edit_username_error').html(result.username);
-                    $('#image_error').html(result.error_image);
-                } else {
-                    $('#image_error').html(result.error_image);
-                    clearError();
-                    reload_table();
+                    $('.editBtn').removeClass("disabled");
+                    $('.editBtn').html('Simpan');
                 }
+                // clearError();
+                // log(result);
+
+                // if (result) {
+                //     $('#ModalEditAdmin').modal('hide');
+                //     clearError();
+                //     reload_table();
+                //     return;
+                // }
+
+                // // jika berhasil
+                // if (result.edit == 1 && result.error_image == 0) {
+                //     $('#ModalEditAdmin').modal('hide');
+                //     clearError();
+                //     reload_table();
+                // } else if (result.error_image) {
+                //     $('#edit_nama_error').html(result.nama);
+                //     $('#edit_username_error').html(result.username);
+                //     $('#image_error').html(result.error_image);
+                // } else {
+                //     $('#image_error').html(result.error_image);
+                //     clearError();
+                //     reload_table();
+                // }
             }
         });
     });
@@ -325,6 +348,7 @@
         $('#image_error').html('');
         $('#nama_error').html('');
         $('#username_error').html('');
+        $('#edit_image').val('');
 
     }
 

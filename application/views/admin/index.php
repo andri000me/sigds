@@ -102,7 +102,7 @@
                     <div class="form-group row">
                         <label class="col-sm-3 col-form-label">Username</label>
                         <div class="col-sm-9">
-                            <input type="text" id="edit_username" name="edit_username" class="form-control" readonly>
+                            <input type="text" id="edit_username" name="edit_username" class="form-control">
                             <span id="edit_username_error" class="text-danger"></span>
                         </div>
                     </div>
@@ -111,6 +111,9 @@
                         <div class="col-sm-9">
                             <input type="file" name="edit_image" id="edit_image" class="form-control">
                             <span id="image_error" class="text-danger"></span>
+                            <span class="text-danger">
+                                <p>* File gambar maksimal 1 MB</p>
+                            </span>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -122,7 +125,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="submit" href="javascript:void(0);" onclick="reload_table()" class="btn btn-primary editBtn">Simpan</button>
+                    <button type="submit" href="javascript:void(0);" class="btn btn-primary editBtn">Simpan</button>
                 </div>
             </div>
         </div>

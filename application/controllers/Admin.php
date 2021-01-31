@@ -34,13 +34,14 @@ class Admin extends CI_Controller
         $this->load->helper('form');
 
         $this->form_validation->set_error_delimiters('', '');
-        $this->form_validation->set_rules('nama', 'Nama', 'required|trim|alpha');
-        $this->form_validation->set_rules('username', 'Username', 'required|trim|is_unique[admin.username]|alpha_numeric');
+        $this->form_validation->set_rules('nama', 'Nama', 'required|trim|alpha|min_length[3]');
+        $this->form_validation->set_rules('username', 'Username', 'required|trim|is_unique[admin.username]|alpha_numeric|min_length[3]');
 
         $this->form_validation->set_message('required', '%s tidak boleh kosong !');
         $this->form_validation->set_message('is_unique', '%s sudah terdaftar !');
         $this->form_validation->set_message('alpha', '%s harus huruf !');
         $this->form_validation->set_message('alpha_numeric', '%s hanya dapat menggunakan angka & huruf!');
+        $this->form_validation->set_message('min_length', '%s terlalu pendek (minimal 3 karakter)');
 
         if ($this->form_validation->run() == FALSE) {
             $array = array(
@@ -79,14 +80,26 @@ class Admin extends CI_Controller
     {
         $this->load->library('form_validation');
         $this->load->helper('form');
+        $id = $this->input->post('id');
+        // get previous username
+        $original_username = $this->db->get_where('admin', ['id_admin' => $id])->row_array()['username'];
+
+        if ($this->input->post('edit_username') != $original_username) {
+            $is_unique =  '|is_unique[admin.username]';
+        } else {
+            $is_unique =  '';
+        }
 
         $this->form_validation->set_error_delimiters('', '');
         $this->form_validation->set_rules('id', 'ID_ADMIN', 'required|trim');
-        $this->form_validation->set_rules('edit_nama', 'Nama', 'required|trim');
-        $this->form_validation->set_rules('edit_username', 'Username', 'required|trim');
+        $this->form_validation->set_rules('edit_nama', 'Nama', 'required|trim|alpha|min_length[3]');
+        $this->form_validation->set_rules('edit_username', 'Username', 'required|trim|alpha_numeric|min_length[3]' . $is_unique);
 
         $this->form_validation->set_message('required', '%s tidak boleh kosong !');
+        $this->form_validation->set_message('alpha', '%s harus huruf !');
         $this->form_validation->set_message('is_unique', '%s sudah ada !');
+        $this->form_validation->set_message('alpha_numeric', '%s hanya dapat menggunakan angka & huruf!');
+        $this->form_validation->set_message('min_length', '%s terlalu pendek (minimal 3 karakter)');
 
         if ($this->form_validation->run() == FALSE) {
             $array = array(
@@ -137,16 +150,16 @@ class Admin extends CI_Controller
 
     public function ubah_image()
     {
+        $this->load->library('ftp');
         //name dari form edit
         $inputfile = 'edit_image';
         $id_admin = $this->input->post('id');
         $prevImage = $this->db->get_where('admin', ['id_admin' => $id_admin])->result_array()[0]['image'];
 
-        // if ($prevImage != "default.jpg") {
 
         // delete previous image
         if ($prevImage != 'default.jpg') {
-            unlink(FCPATH . '/assets/img/admin/' . $prevImage);
+            $this->ftp->delete_file(FCPATH . 'assets/img/admin/' . $prevImage);
         }
         // }
         // PATH IMAGE DISIMPAN

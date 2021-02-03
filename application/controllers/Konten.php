@@ -14,6 +14,8 @@ class Konten extends CI_Controller
 
     public function peraturan()
     {
+        $data['user']   = $this->db->get_where('admin', ['username' => $this->session->userdata('username')])->row_array();
+
         $this->form_validation->set_rules('peraturan', 'Peraturan', 'required|trim', [
             'required' => 'harus di isi!',
         ]);
@@ -37,6 +39,8 @@ class Konten extends CI_Controller
     }
     public function sejarah()
     {
+        $data['user']   = $this->db->get_where('admin', ['username' => $this->session->userdata('username')])->row_array();
+
         $this->form_validation->set_rules('sejarah', 'Sejarah', 'required|trim', [
             'required' => 'harus di isi!',
         ]);
@@ -60,6 +64,8 @@ class Konten extends CI_Controller
     }
     public function visimisi()
     {
+        $data['user']   = $this->db->get_where('admin', ['username' => $this->session->userdata('username')])->row_array();
+        
         $this->form_validation->set_rules('visi', 'Visi', 'required|trim', [
             'required' => 'harus di isi!',
         ]);
